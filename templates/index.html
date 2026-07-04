@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            color: black;
+            padding: 30px;
+            margin: 50px auto;
+            width: 400px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 8px;
+            margin: 8px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #2a5298;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>🚗 Car Price Predictor</h2>
+
+    <form action="/predict" method="post">
+
+        <input type="number" name="year" placeholder="Year" required>
+        <input type="number" name="km_driven" placeholder="KM Driven" required>
+
+        <select name="fuel">
+            <option value="0">Petrol</option>
+            <option value="1">Diesel</option>
+            <option value="2">CNG</option>
+            <option value="3">LPG</option>
+        </select>
+
+        <select name="seller_type">
+            <option value="0">Dealer</option>
+            <option value="1">Individual</option>
+        </select>
+
+        <select name="transmission">
+            <option value="0">Manual</option>
+            <option value="1">Automatic</option>
+        </select>
+
+        <select name="owner">
+            <option value="0">First Owner</option>
+            <option value="1">Second Owner</option>
+            <option value="2">Third Owner</option>
+        </select>
+
+        <input type="number" step="0.1" name="mileage" placeholder="Mileage">
+        <input type="number" name="engine" placeholder="Engine CC">
+        <input type="number" step="0.1" name="max_power" placeholder="Max Power">
+        <input type="number" name="seats" placeholder="Seats">
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</div>
+
+</body>
+</html>
